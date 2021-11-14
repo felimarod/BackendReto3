@@ -25,7 +25,7 @@ public abstract class GenericoAbstractApiRest<T, ID extends Serializable> {
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public void guardar(@RequestBody T entidad) {
-        getService().guardar(entidad);
+        getService().guardar(entidad);  
     }
 
     @PutMapping("/update")

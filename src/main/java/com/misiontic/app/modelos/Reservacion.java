@@ -7,7 +7,7 @@ package com.misiontic.app.modelos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.ZonedDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,10 +29,10 @@ public class Reservacion implements Serializable {
     private Long idReservation;
     
     @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private ZonedDateTime startDate;
     
     @Temporal(TemporalType.DATE)
-    private Date devolutionDate;
+    private ZonedDateTime devolutionDate;
     
     private String status;
     
