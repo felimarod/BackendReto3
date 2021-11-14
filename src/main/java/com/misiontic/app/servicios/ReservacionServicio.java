@@ -19,7 +19,8 @@ public class ReservacionServicio extends GenericoAbstractoServicio<Reservacion, 
     }
 
     @Override
-    public Reservacion guardar(Reservacion entidad) {        
+    public Reservacion guardar(Reservacion entidad) { 
+        entidad.setStartDate(entidad.getStartDate());
         if (entidad.getIdReservation()== null) {
             entidad.setStatus("created");
             return repositorio.guardar(entidad);
