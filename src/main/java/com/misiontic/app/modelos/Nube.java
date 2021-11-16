@@ -26,7 +26,7 @@ public class Nube implements Serializable{
     private Categoria category;
     
     @OneToMany(mappedBy = "cloud", cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties({"cloud", "client"})
+    @JsonIgnoreProperties({"cloud", "client", "createdDate"})
     private List<Mensaje> messages;
     
     @OneToMany(mappedBy = "cloud", cascade = CascadeType.PERSIST)

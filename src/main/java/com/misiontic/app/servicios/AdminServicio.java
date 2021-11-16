@@ -1,29 +1,29 @@
 package com.misiontic.app.servicios;
 
-import com.misiontic.app.modelos.Nube;
+import com.misiontic.app.modelos.Admin;
 import com.misiontic.app.repositorios.GenericoAbstractoRepositorio;
-import com.misiontic.app.repositorios.NubeRepositorio;
+import com.misiontic.app.repositorios.AdminRepositorio;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NubeServicio extends GenericoAbstractoServicio<Nube, Long> {
+public class AdminServicio extends GenericoAbstractoServicio<Admin, Long> {
 
     @Autowired
-    private NubeRepositorio repositorio;
+    private AdminRepositorio repositorio;
 
     @Override
-    public GenericoAbstractoRepositorio<Nube, Long> getService() {
+    public GenericoAbstractoRepositorio<Admin, Long> getService() {
         return repositorio;
     }
 
     @Override
-    public Nube guardar(Nube entidad) {
-        if (entidad.getId() == null) {
+    public Admin guardar(Admin entidad) { 
+        if (entidad.getId()== null) {
             return repositorio.guardar(entidad);
         } else {
-            Optional<Nube> c = obtenerPorId(entidad.getId());
+            Optional<Admin> c = obtenerPorId(entidad.getId());
             if (!c.isPresent()) {
                 return repositorio.guardar(entidad);
             } else {
@@ -33,16 +33,16 @@ public class NubeServicio extends GenericoAbstractoServicio<Nube, Long> {
     }
 
     @Override
-    public Nube actualizar(Nube entidad) {
-        if (entidad.getId() != null) {
-            Optional<Nube> c = obtenerPorId(entidad.getId());
-            if (c.isPresent()) {
+    public Admin actualizar(Admin entidad) {
+        if(entidad.getId() != null){
+            Optional<Admin> c = obtenerPorId(entidad.getId());
+            if(c.isPresent()){
                 return repositorio.guardar(entidad);
-            } else {
+            }else{
                 return entidad;
             }
-        } else {
+        }else{
             return entidad;
-        }
+        }    
     }
 }
